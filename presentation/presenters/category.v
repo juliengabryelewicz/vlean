@@ -16,6 +16,7 @@ pub fn (category_presenter CategoryPresenter) to_html(category entities.Category
     mut content_link_after :=""
     mut link_before :=""
     mut content_link_before :=""
+    title := category.title
 
     if page > 1 {
         link_before='/category/' + category.slug + '?page=' + (page-1).str()

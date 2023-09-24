@@ -16,6 +16,7 @@ pub fn (home_presenter HomePresenter) to_html(posts []entities.Post, posts_count
     mut content_link_after :=""
     mut link_before :=""
     mut content_link_before :=""
+    title := "Vlean - Blog"
 
     if page > 1 {
         link_before='/?page=' + (page-1).str()
