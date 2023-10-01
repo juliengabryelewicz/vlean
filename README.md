@@ -10,7 +10,6 @@ Theme used is from Bootstrap templates.
 
 ## Todo
 
-- Search page
 - Multiple categories for a post
 - User authentication
 - Back office

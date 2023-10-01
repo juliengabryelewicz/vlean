@@ -114,6 +114,10 @@
     <main class="container">
     <div class="row g-5">
         <div class="col-md-8">
+            <form action="/search" method="get" class="form-search d-flex align-items-stretch mb-3 aos-init aos-animate" >
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
             @content
         </div>
 

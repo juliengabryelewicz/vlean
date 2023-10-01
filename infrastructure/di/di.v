@@ -17,6 +17,8 @@ pub struct Di {
         post_repository repositories.PostRepository
 	    error_usecase usecases.ErrorUsecase
         error_presenter presenters.ErrorPresenter
+        search_usecase usecases.SearchUsecase
+        search_presenter presenters.SearchPresenter
 }
 
 pub fn generate_di(database db.Db) Di {
@@ -29,11 +31,13 @@ pub fn generate_di(database db.Db) Di {
     home_presenter := presenters.HomePresenter { default_presenter }
     category_presenter := presenters.CategoryPresenter { default_presenter }
     error_presenter := presenters.ErrorPresenter { default_presenter }
+    search_presenter := presenters.SearchPresenter { default_presenter }
 
     error_usecase := usecases.ErrorUsecase { error_presenter }
     category_usecase := usecases.CategoryUsecase { category_presenter, error_presenter, category_repository, post_repository }
     home_usecase := usecases.HomeUsecase { home_presenter, post_repository }
     post_usecase := usecases.PostUsecase { post_presenter, error_presenter, post_repository }
+    search_usecase := usecases.SearchUsecase { search_presenter, post_repository }
 
     return Di {
         category_presenter : category_presenter
@@ -46,5 +50,7 @@ pub fn generate_di(database db.Db) Di {
         post_repository : post_repository
         error_presenter : error_presenter
         error_usecase : error_usecase
+        search_presenter : search_presenter
+        search_usecase : search_usecase
     }
 }

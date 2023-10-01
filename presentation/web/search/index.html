@@ -1,0 +1,18 @@
+<h1>Search for : @q</h1>
+
+
+@for post in posts_content
+
+    <article class="blog-post">
+        <h2 class="display-5 link-body-emphasis mb-1"><a href="/post/@post.slug">@post.title</a></h2>
+        <small>@post.time</small>
+        <div>
+            @post.text
+        </div>
+    </article>
+@end
+
+<nav class="blog-pagination" aria-label="Pagination">
+    @content_link_before
+    @content_link_after
+</nav>

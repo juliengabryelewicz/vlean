@@ -1,10 +1,11 @@
 module routes
 
 import vweb
-import application.controllers.home
-import application.controllers.post
 import application.controllers.category
 import application.controllers.error
+import application.controllers.home
+import application.controllers.post
+import application.controllers.search
 import infrastructure.state
 
 pub struct App {
@@ -21,6 +22,12 @@ pub fn (mut app App) index() ?vweb.Result {
 ['/post/:post_slug'; get]
 pub fn (mut app App) post(post_slug string) ?vweb.Result {
 	result := post.index(app.state, post_slug)
+	return app.html(result)
+}
+
+['/search'; get]
+pub fn (mut app App) search() ?vweb.Result {
+	result := search.index(app.state, app.query)
 	return app.html(result)
 }
 
